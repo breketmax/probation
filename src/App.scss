@@ -1,0 +1,125 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#root{
+    background-color: #cce0ff;
+}
+.container{
+    max-width: 1140px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    overflow-y: hidden;
+}
+.todo-list{
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+}
+textarea:focus, input:focus{
+    outline:none;
+
+}
+.task-settings{
+    border-left: 2px solid #88ABE3;
+    border-right: 2px solid #88ABE3;
+    min-height: 100vh;
+    background-color: #fff;
+}
+.todo-list{
+    border-left: 2px solid #88ABE3;
+    background-color: #fff;
+    position: relative;
+    z-index: 10;
+}
+.tasks{
+    position: relative;
+    &::after{
+        content:"";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -7px;
+        width: 20px;
+        height: 102px;
+        background-image: url("./components/img/more.png") ;
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        pointer-events: none;
+    }
+}
+input[type=range] {
+    -webkit-appearance: none;
+    height: 1px;
+    width: 708px;
+    border:none;
+    background:transparent;
+    margin-left: 90px;
+    margin-top: -1px;
+    position: absolute;
+    top: 0%;
+    transform: translateY(-50%);
+
+
+/* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+/* Add cool effects to your sliders! */
+  }
+
+/* Специальные правила для браузеров на движках WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    margin-top: -14px; /* Вам нужно указать значение для поля в Chrome, но в Firefox и IE это происходит автоматически */
+  }
+  
+  /* Тоже самое для Firefox */
+  input[type=range]::-moz-range-thumb {
+
+    border: 1px solid #fff;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  
+  /* Тоже самое для IE */
+  input[type=range]::-ms-thumb {
+    border: 1px solid #fff;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  /* Специальные правила для браузеров на движках WebKit/Blink */
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border:none;
+    height: calc(100vh + 65px);
+    width: 10px;
+    background: #88ABE3;
+    cursor: pointer;
+    margin-top: -14px; /* Вам нужно указать значение для поля в Chrome, но в Firefox и IE это происходит автоматически */
+ /* Добавляем классные эффекты для слайдера! */
+  }
+
+input[type=range]::-webkit-slider-runnable-track {
+
+  height: 0.1px;
+  cursor: col-resize;
+
+  background: #3071a9;
+  z-index: -10;
+  margin-bottom: 100px;
+
+
+}

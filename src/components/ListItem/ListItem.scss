@@ -1,0 +1,31 @@
+.list-item{ 
+    font-weight: 500;
+    color:#464444;
+    font-size: 1.5rem;
+    list-style: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    
+    &:hover{
+        background-color: rgb(238, 238, 238);
+    }
+    &.progress{
+        background-color: #5b9ad53b;
+        color:#5B9BD5;
+        &:hover{
+            background-color: #5b9ad556;
+        }
+    }
+    &.done{
+        background-color: #00b04f1f;
+        color:#00B050;
+        text-decoration: line-through;
+        &:hover{
+            background-color: #00b04f3a;
+        }
+    }
+    &.active{
+        background-color: rgb(71, 166, 255);
+        color:#fff;
+    }
+}

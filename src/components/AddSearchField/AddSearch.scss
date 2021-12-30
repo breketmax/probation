@@ -1,0 +1,41 @@
+.field-box{
+    position: relative;
+    display: flex;
+    .field-input{
+        width: 100%;
+        height: 60px;
+        padding: 0 0 0 10px;
+        font-size: 1.5rem;
+        border: 1px solid #B3CDF8;
+
+        &::placeholder{
+            color: #9F9F9F;
+        }
+        &:focus{
+            border:2px solid #5C98F1;
+        }
+    }
+    .button-box{
+        display: flex;
+        position: absolute;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0px;
+        margin-right: 5px;
+        .field-button{
+            box-sizing: border-box;
+            background-color: #ffffff;
+            border:none;
+            cursor: pointer;
+            width: 45px;
+            padding: 0;
+            height: 60px;
+            img{
+                width: 25px;
+                height: auto;
+            }
+        }
+    }
+
+}
