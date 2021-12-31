@@ -21,12 +21,13 @@ const App:React.FC = () => {
                                           {"label":"Complete probation","done":false, "progress":false,"active":false,"id":3},
                                           {"label":"Finish project","done":false, "progress":false,"active":false,"id":4},
                                           {"label":"Turn off light","done":false, "progress":true,"active":false,"id":5}]);
-  const deleteHandle = (itemKey:number) => {
-    const todoDataCopy = [...todoData].filter(el => el.id !== itemKey );
-    setTodoData(todoDataCopy);
-  };
-  const progressHandle = (itemKey:number) => {
-    const todoDataCopy = [...todoData].map(el => {
+  const deleteHandle = (itemKey:number) => {                              //Функция удаления элемента из списка, принимет id задачи с которой взаимодействует user
+    const todoDataCopy = [...todoData].filter(el => el.id !== itemKey ); //Копирует путем деструктаризации текущий state 
+    setTodoData(todoDataCopy);                                            //Фильтр удаляет в копии тот элемент который выбрал пользователь
+  };                                                                       //Обновление текущего state
+
+  const progressHandle = (itemKey:number) => {                         //Функция отслеживания состояния прогресса задачи
+    const todoDataCopy = [...todoData].map(el => {              
       if(el.id === itemKey){
         el.progress = true;
         el.done = false;

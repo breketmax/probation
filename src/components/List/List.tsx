@@ -17,7 +17,8 @@ interface dataTypes {
 }
 const List:React.FC<dataTypes> = ({data,activeHandle,filter,size}) => {
     const listData = [...data].filter(el => {return (el.label.toLowerCase()).match(filter.toLowerCase())});
-    if(filter === ""){
+    //При получении списка задач создается отфильтрованная копия с учетом ключевого слова
+    if(filter === ""){    //Если фильтр пуст, то выводится весь список
         return (
             <>
             <ul className="list">
@@ -30,7 +31,7 @@ const List:React.FC<dataTypes> = ({data,activeHandle,filter,size}) => {
         </>
         );
     }
-    return (
+    return (            //Иначе рендерится только те item'ы которые подходят по ключевому слову 
         <>
             <ul className="list">
                 {listData.map(el => {

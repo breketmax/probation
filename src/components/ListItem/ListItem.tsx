@@ -21,12 +21,14 @@ const ListItem:React.FC<itemType> = ({label,done,progress,active,id,activeHandle
                       (size < 500 && label.length > 35) ? label.slice(0,24) + "...":
                       (size < 600 && label.length > 40) ? label.slice(0,25) + "...":
                       (size < 700 && label.length > 50) ? label.slice(0,30) + "...":label;
+                      //Обрезания имени в зависимости от ширины окна задач
     return (
         <>
             <li 
                 className = {"list-item" + (progress ? " progress": "")  + (done ? " done" : "")    + (active ? " active" : "")}
                 onClick={() => activeHandle(id)}
             >{respLabel}</li>    
+            {/* элемент списка задач с классами из его состояние, по клику в App передается id элемента и он становится активным */}
         </>
     );
 };

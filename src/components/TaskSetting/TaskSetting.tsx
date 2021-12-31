@@ -28,10 +28,12 @@ const TaskSetting:React.FC<dataTypes> = ({data,deleteHandle,progressHandle,doneH
     const nameHandle = (e:ChangeEvent<HTMLInputElement>) => {
         setNewName(e.target.value);
     };
+
     useEffect(()=>{
         setEdit(false);
-    },[activeEl]);
-    if (typeof activeEl === 'undefined'){
+    },[activeEl]); //Функция, отвечающаяя за то, если пользователь выбрал переименовать задачу но изменил активную задачу,закрывает поле редактирования  
+
+    if (typeof activeEl === 'undefined'){       //если список пуст или активный элемент не выбран, показывающаяя инструкции пользователю
         return (
             <div className="task-header"><h1>Select or add task</h1></div>
         )
@@ -41,11 +43,12 @@ const TaskSetting:React.FC<dataTypes> = ({data,deleteHandle,progressHandle,doneH
                       (size < 650 && activeEl.label.length > 30) ? activeEl.label.slice(0,25) + "...":
                       (size < 700 && activeEl.label.length > 35) ? activeEl.label.slice(0,28) + "...":
                       activeEl.label;
+                      //Обрезание имени задачи в зависимости от ширины окна настроек задач
     return (
         
         <>
             <div className="task-header">{edit ? <><input autoFocus placeholder="Enter new task name" onChange={nameHandle} type="text"/><button onClick={() => {changeHandle(newName,activeEl.id);setEdit(false);}}><img src={tickImg} alt="tick-icon"/></button></> : <h1>{respLabel}</h1>}</div>
-            <div className="task-button-box">
+            <div className="task-button-box"> {/* Все кнопки по клику передают айди в те функции состояния задачи, которые нужны */}
                 <div className="button-row">
                     <button className="setting-button delete" onClick={() => deleteHandle(activeEl.id)}><img src={binImg} alt="bin-icon" /></button>
                     <button className="setting-button edit" onClick={()=> setEdit(true)}><img src={editImg} alt="pen-icon" /></button>
@@ -53,6 +56,9 @@ const TaskSetting:React.FC<dataTypes> = ({data,deleteHandle,progressHandle,doneH
                 <div className="button-row">
                     <button className={"setting-button progress " + (activeEl.progress ? "in-state" : "")} onClick={() => progressHandle(activeEl.id)}><img src={progressImg} alt="progress-icon" /></button>
                     <button className={"setting-button done " + (activeEl.done ? "in-state" : "")} onClick={() => doneHandle(activeEl.id)}><img src={completeImg} alt="complete-icon" /></button>
+                                                                {/* Если состояние активно, то 
+                                                                кнопка отвечающее за это состояние
+                                                                                 недееспособна */}
                 </div>     
             </div>           
         </>
